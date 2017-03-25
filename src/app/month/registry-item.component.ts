@@ -28,6 +28,15 @@ export class RegistryItemComponent implements OnInit {
 
   toogleEditable() {
     this.editable = !this.editable;
+    console.log(this.registry);
+  }
+
+  formatDate(date: Date) {
+    return Factory.getInstance().getDateFunctionsObject().defaultFormat(date);
+  }
+
+  getDate(dateStr) {
+    return Factory.getInstance().getDateFunctionsObject().getDate(dateStr);
   }
 
 }

@@ -3,8 +3,9 @@
         <span class="no-editable">{{ index }}</span>
       </div>
       <div class="attribute">
-        <span class="no-editable" [hidden]="editable">{{ registry.date }}</span>
-        <input type="date" [hidden]="!editable" [(ngModel)]="registry.date">
+        <span class="no-editable" [hidden]="editable">{{ formatDate(registry.date) }}</span>
+        <input type="date" [hidden]="!editable"
+        [ngModel]="registry.date | date:'y-MM-dd'" (ngModelChange)="registry.date = getDate($event)">
       </div>
       <div class="attribute">
         <span class="no-editable" [hidden]="editable">{{ registry.concept.name }}</span>

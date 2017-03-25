@@ -1,3 +1,7 @@
+body {
+    font-size: 13px;
+}
+
 .row {
     display: flex;
 }
@@ -15,16 +19,46 @@
     width: 100%;
 }
 
-input[type=date] {
-    width: 130px;
-}
-
 .attribute:nth-child(1) {
     min-width: 50px;
     max-width: 50px;
 }
 
-.attribute:nth-child(2) {
+.attribute:nth-child(2), .attribute:nth-child(7) {
     min-width: 136px;
     max-width: 136px;
+}
+
+select {
+    min-width: 80px;
+    max-width: 80px;
+}
+
+input[type=date] {
+    width: 130px;
+}
+
+ld-registry-item {
+    border-bottom: solid 1px gray;
+    padding: 2px 0px 3px;
+}
+
+.row.body>.registry:last-child {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
+
+input {
+    height: 18px;
+    border: solid 1px gray;
+}
+
+select, button {
+    height: 22px;
+    border: solid 1px gray;
+}
+
+input, button, select {
+    padding: 1px;
 }
