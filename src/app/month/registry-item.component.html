@@ -1,0 +1,38 @@
+    <div class="row registry">
+      <div class="attribute">
+        <span class="no-editable">{{ index }}</span>
+      </div>
+      <div class="attribute">
+        <span class="no-editable" [hidden]="editable">{{ registry.date }}</span>
+        <input type="date" [hidden]="!editable" [(ngModel)]="registry.date">
+      </div>
+      <div class="attribute">
+        <span class="no-editable" [hidden]="editable">{{ registry.concept.name }}</span>
+        <select [hidden]="!editable" [(ngModel)]="registry.concept">
+          <option *ngFor="let concept of conceptList; let i = index; trackBy: trackByFn"
+          [ngValue]="concept">{{ concept.name }}</option>
+        </select>
+      </div>
+      <div class="attribute">
+        <span class="no-editable" [hidden]="editable">{{ registry.description }}</span>
+        <input type="text" [hidden]="!editable" [(ngModel)]="registry.description">
+      </div>
+      <div class="attribute">
+        <span class="no-editable" [hidden]="editable">{{ registry.debit }}</span>
+        <input type="number" [hidden]="!editable" [(ngModel)]="registry.debit">
+      </div>
+      <div class="attribute">
+        <span class="no-editable" [hidden]="editable">{{ registry.credit }}</span>
+        <input type="number" [hidden]="!editable" [(ngModel)]="registry.credit">
+      </div>
+      <div class="attribute">
+        <span class="no-editable" [hidden]="editable">{{ registry.paymentType.name }}</span>
+        <select [hidden]="!editable" [(ngModel)]="registry.paymentType">
+          <option *ngFor="let p of paymentList; let i = index; trackBy: trackByFn"
+          [ngValue]="p">{{ p.name }}</option>
+        </select>
+      </div>
+      <div class="attribute">
+          <button class="no-editable" [hidden]="editable" (click)="toogleEditable()">Editar</button>
+          <button [hidden]="!editable" (click)="toogleEditable()">Guardar</button></div>
+    </div>

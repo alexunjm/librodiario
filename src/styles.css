@@ -1,0 +1,30 @@
+.row {
+    display: flex;
+}
+
+.row.body {
+    flex-direction: column;
+}
+
+.attribute {
+    flex-basis: 10%;
+    padding: 0px 4px;
+}
+
+.attribute>input {
+    width: 100%;
+}
+
+input[type=date] {
+    width: 130px;
+}
+
+.attribute:nth-child(1) {
+    min-width: 50px;
+    max-width: 50px;
+}
+
+.attribute:nth-child(2) {
+    min-width: 136px;
+    max-width: 136px;
+}
