@@ -9,6 +9,8 @@ import { RegistryItemComponent } from './month/registry-item.component';
 import { CuentasPorCobrarComponent } from './cuentas-por-cobrar/cuentas-por-cobrar.component';
 import { CuentasPorPagarComponent } from './cuentas-por-pagar/cuentas-por-pagar.component';
 import { TabsComponent } from './tabs/tabs.component';
+import { RegistryItemCxcComponent } from './cuentas-por-cobrar/registry-item-cxc.component';
+import { RegistryItemCxpComponent } from './cuentas-por-pagar/registry-item-cxp.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { TabsComponent } from './tabs/tabs.component';
     RegistryItemComponent,
     CuentasPorCobrarComponent,
     CuentasPorPagarComponent,
-    TabsComponent
+    TabsComponent,
+    RegistryItemCxcComponent,
+    RegistryItemCxpComponent
   ],
   imports: [
     BrowserModule,

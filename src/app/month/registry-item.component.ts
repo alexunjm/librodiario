@@ -11,21 +11,14 @@ import { PaymentType } from '../payment-type';
 })
 export class RegistryItemComponent implements OnInit {
 
-  @Input() format: string;
   @Input() registry: Registry;
   @Input() index: number;
   editable: boolean;
-  month: boolean;
-  cxc: boolean;
-  cxp: boolean;
   conceptList: Array<Concept>;
   paymentList: Array<PaymentType>;
 
   constructor() {
     this.editable = false;
-    this.month = false;
-    this.cxc = false;
-    this.cxp = false;
     this.conceptList = Factory.getInstance().getSampleConceptList();
     this.paymentList = Factory.getInstance().getSamplePaymentList();
   }

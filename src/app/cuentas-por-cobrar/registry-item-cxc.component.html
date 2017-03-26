@@ -1,0 +1,22 @@
+    <div class="row registry">
+      <div class="attribute">
+        <span class="no-editable" [hidden]="editable">{{ registry.document }}</span>
+        <input type="text" [hidden]="!editable" [(ngModel)]="registry.document">
+      </div>
+      <div class="attribute">
+        <span class="no-editable" [hidden]="editable">{{ registry.description }}</span>
+        <input type="text" [hidden]="!editable" [(ngModel)]="registry.description">
+      </div>
+      <div class="attribute">
+        <span class="no-editable" [hidden]="editable">{{ registry.debit }}</span>
+        <input type="number" [hidden]="!editable" [(ngModel)]="registry.debit">
+      </div>
+      <div class="attribute">
+        <span class="no-editable" [hidden]="editable">{{ formatDate(registry.chargeDate) }}</span>
+        <input type="date" [hidden]="!editable"
+        [ngModel]="registry.chargeDate | date:'y-MM-dd'" (ngModelChange)="registry.chargeDate = getDate($event)">
+      </div>
+      <div class="attribute">
+          <button class="no-editable" [hidden]="editable" (click)="toogleEditable()">Editar</button>
+          <button [hidden]="!editable" (click)="toogleEditable()">Guardar</button></div>
+    </div>

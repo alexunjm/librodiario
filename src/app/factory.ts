@@ -68,6 +68,10 @@ export class Factory {
     return this.samplePayment;
   }
 
+  public getPaymentObject(name: string): PaymentType {
+    return new PaymentType(name);
+  }
+
   public getSampleConceptList(): Array<Concept> {
     return this.sampleConceptList;
   }

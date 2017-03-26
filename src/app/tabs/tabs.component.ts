@@ -8,7 +8,7 @@ import { Registry } from '../registry';
 })
 export class TabsComponent implements OnInit {
 
-  public tab: number = 1;
+  public tab = 1;
   public month: string;
   registryList: Array<Registry>;
 
@@ -22,12 +22,12 @@ export class TabsComponent implements OnInit {
   ngOnInit() {
   }
 
-	public isSet = function(checkTab) {
-		return this.tab === checkTab;
-	};
+  public isSet(checkTab) {
+    return this.tab === checkTab;
+  };
 
-	public setTab = function(activeTab) {
-		this.tab = activeTab;
-	};
+  public setTab(activeTab) {
+    this.tab = activeTab;
+  };
 
 }

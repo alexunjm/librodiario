@@ -1,3 +1,12 @@
-<p>
-  cuentas-por-pagar works!
-</p>
+    <div class="row header">
+      <div class="attribute">Documento</div>
+      <div class="attribute">Descripción</div>
+      <div class="attribute">Valor</div>
+      <div class="attribute">Fecha de Pago</div>
+      <div class="attribute"></div>
+    </div>
+    <div class="row body">
+      <ld-registry-item-cxp *ngFor="let registry of registryCxpList; let i = index; trackBy: trackByFn"
+      [index]="i+1" [registry]="registry"></ld-registry-item-cxp>
+      <div class="registry"><button (click)="newRegistry()">Nuevo</button></div>
+    </div>

@@ -1,5 +1,9 @@
 export class Registry {
 
+  public document: string;
+  public chargeDate: Date;
+  public paymentDate: Date;
+
   constructor(public date, public concept, public description, public debit, public credit, public paymentType) {}
 
   /*
