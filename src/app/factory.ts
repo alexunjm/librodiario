@@ -1,7 +1,9 @@
 import { Concept } from './concept';
 import { PaymentType } from './payment-type';
 import { Registry } from './registry';
+import { RegistryItem } from './registry-item';
 import { DateFunctions } from './date-functions';
+import { ListManager } from './list-manager';
 
 export class Factory {
 
@@ -34,8 +36,9 @@ export class Factory {
     return Factory._instace;
   }
 
-  public getEmptyRegistry(): Registry {
-    return new Registry(
+  public getEmptyRegistryItem(): RegistryItem {
+    const rItem = new RegistryItem(true);
+    rItem.registry = new Registry(
       new Date(),
       null,
       null,
@@ -43,26 +46,26 @@ export class Factory {
       null,
       null
     );
+    return rItem;
   }
 
-  public getEmptyRegistryCxc(): Registry {
-    const emptyR = this.getEmptyRegistry();
-    emptyR.paymentType = new PaymentType('Cuentas por Cobrar', true, false);
-    return emptyR;
+  public getEmptyRegistryItemCxc(): RegistryItem {
+    const emptyRI = this.getEmptyRegistryItem();
+    emptyRI.registry.paymentType = this.paymentTypeList.filter(pt => pt.cxc)[0];
+    return emptyRI;
   }
 
-  public getEmptyRegistryCxp(): Registry {
-    const emptyR = this.getEmptyRegistry();
-    emptyR.paymentType = new PaymentType('Cuentas por Pagar', false, true);
-    return emptyR;
+  public getEmptyRegistryItemCxp(): RegistryItem {
+    const emptyRI = this.getEmptyRegistryItem();
+    emptyRI.registry.paymentType = this.paymentTypeList.filter(pt => pt.cxp)[0];
+    return emptyRI;
   }
 
-  public getConceptList(): Array<Concept> {
-    return this.conceptList;
-  }
-
-  public getPaymentTypeList(): Array<PaymentType> {
-    return this.paymentTypeList;
+  public getListManagerObject(): ListManager {
+    const lm = new ListManager();
+    lm.conceptList = this.conceptList;
+    lm.paymentTypeList = this.paymentTypeList;
+    return lm;
   }
 
   public getDateFunctionsObject(): DateFunctions {

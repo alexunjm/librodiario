@@ -6,7 +6,7 @@
       <div class="attribute"></div>
     </div>
     <div class="row body">
-      <ld-registry-item-cxp *ngFor="let registry of registryCxpList; let i = index; trackBy: trackByFn"
-      [index]="i+1" [registry]="registry"></ld-registry-item-cxp>
-      <div class="registry"><button (click)="newRegistry()">Nuevo</button></div>
+      <ld-registry-item-cxp *ngFor="let registryItem of registryItemCxpList; let i = index; trackBy: trackByFn"
+      [index]="i+1" [registryItem]="registryItem"></ld-registry-item-cxp>
+      <div class="registry"><button (click)="newRegistryItem()">Nuevo</button></div>
     </div>

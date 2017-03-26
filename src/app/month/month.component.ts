@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Factory } from '../factory';
-import { Registry } from '../registry';
+import { RegistryItem } from '../registry-item';
+import { ListManager } from '../list-manager';
 
 @Component({
   selector: 'ld-month',
@@ -8,16 +9,16 @@ import { Registry } from '../registry';
 })
 export class MonthComponent implements OnInit {
 
-  @Input() registryList: Array<Registry>;
+  @Input() registryItemList: Array<RegistryItem>;
+  @Input() listManager: ListManager;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
   }
 
-  newRegistry() {
-    this.registryList.push(Factory.getInstance().getEmptyRegistry());
+  newRegistryItem() {
+    this.registryItemList.push(Factory.getInstance().getEmptyRegistryItem());
   }
 
 }

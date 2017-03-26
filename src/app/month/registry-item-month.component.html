@@ -1,0 +1,39 @@
+    <div class="row registry">
+      <div class="attribute">
+        <span class="no-editable">{{ index }}</span>
+      </div>
+      <div class="attribute">
+        <span class="no-editable" [hidden]="registryItem.editable">{{ formatDate(registryItem.registry.date) }}</span>
+        <input type="date" [hidden]="!registryItem.editable"
+        [ngModel]="registryItem.registry.date | date:'y-MM-dd'" (ngModelChange)="registryItem.registry.date = getDate($event)">
+      </div>
+      <div class="attribute">
+        <span class="no-editable" [hidden]="registryItem.editable">{{ registryItem.registry.concept ? registryItem.registry.concept.name : '' }}</span>
+        <select [hidden]="!registryItem.editable" [(ngModel)]="registryItem.registry.concept">
+          <option *ngFor="let concept of listManager.conceptList; let i = index; trackBy: trackByFn"
+          [ngValue]="concept">{{ concept.name }}</option>
+        </select>
+      </div>
+      <div class="attribute">
+        <span class="no-editable" [hidden]="registryItem.editable">{{ registryItem.registry.description }}</span>
+        <input type="text" [hidden]="!registryItem.editable" [(ngModel)]="registryItem.registry.description">
+      </div>
+      <div class="attribute">
+        <span class="no-editable" [hidden]="registryItem.editable">{{ registryItem.registry.debit }}</span>
+        <input type="number" [hidden]="!(editable && !creditable())" [(ngModel)]="registryItem.registry.debit">
+      </div>
+      <div class="attribute">
+        <span class="no-editable" [hidden]="registryItem.editable">{{ registryItem.registry.credit }}</span>
+        <input type="number" [hidden]="!(editable && creditable())" [(ngModel)]="registryItem.registry.credit">
+      </div>
+      <div class="attribute">
+        <span class="no-editable" [hidden]="registryItem.editable">{{ registryItem.registry.paymentType ? registryItem.registry.paymentType.name : '' }}</span>
+        <select [hidden]="!registryItem.editable" [(ngModel)]="registryItem.registry.paymentType">
+          <option *ngFor="let p of listManager.paymentTypeList; let i = index; trackBy: trackByFn"
+          [ngValue]="p">{{ p.name }}</option>
+        </select>
+      </div>
+      <div class="attribute">
+          <button class="no-editable" [hidden]="registryItem.editable" (click)="toogleEditable()">Editar</button>
+          <button [hidden]="!registryItem.editable" (click)="toogleEditable()">Guardar</button></div>
+    </div>

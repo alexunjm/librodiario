@@ -1,6 +1,6 @@
 import { Component, DoCheck, Input } from '@angular/core';
 import { Factory } from '../factory';
-import { Registry } from '../registry';
+import { RegistryItem } from '../registry-item';
 import { PaymentType } from '../payment-type';
 
 @Component({
@@ -9,21 +9,21 @@ import { PaymentType } from '../payment-type';
 })
 export class CuentasPorPagarComponent implements DoCheck {
 
-  @Input() registryList: Array<Registry>;
-  registryCxpList: Array<Registry>;
+  @Input() registryItemList: Array<RegistryItem>;
+  registryItemCxpList: Array<RegistryItem>;
 
   constructor() { }
 
   ngDoCheck() {
-    this.registryCxpList = this.registryList.filter(this.byPaymentTypeCxp, this);
+    this.registryItemCxpList = this.registryItemList.filter(this.byPaymentTypeCxp, this);
   }
 
-  byPaymentTypeCxp(registry: Registry) {
-    return registry.paymentType && registry.paymentType.cxp;
+  byPaymentTypeCxp(registryItem: RegistryItem) {
+    return registryItem.registry.paymentType && registryItem.registry.paymentType.cxp;
   }
 
-  newRegistry() {
-    this.registryList.push(Factory.getInstance().getEmptyRegistryCxp());
+  newRegistryItem() {
+    this.registryItemList.push(Factory.getInstance().getEmptyRegistryItemCxp());
   }
 
 }

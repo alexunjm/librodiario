@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RegistryItemComponent } from '../month/registry-item.component';
+import { RegistryItemComponent } from '../registry-item/registry-item.component';
 
 @Component({
   selector: 'ld-registry-item-cxc',

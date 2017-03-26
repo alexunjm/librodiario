@@ -12,11 +12,11 @@
 	</ul>
 
 	<!--  Month Tab's Content  -->
-  <ld-month [registryList]="registryList" [hidden]="!isSet(1)"></ld-month>
+  <ld-month [registryItemList]="registryItemList" [listManager]="listManager" [hidden]="!isSet(1)"></ld-month>
 
 	<!--  CXC Tab's Content  -->
-	<ld-cuentas-por-cobrar [registryList]="registryList" [hidden]="!isSet(2)"></ld-cuentas-por-cobrar>
+	<ld-cuentas-por-cobrar [registryItemList]="registryItemList" [hidden]="!isSet(2)"></ld-cuentas-por-cobrar>
 
 	<!--  CXP Tab's Content  -->
-	<ld-cuentas-por-pagar [registryList]="registryList" [hidden]="!isSet(3)"></ld-cuentas-por-pagar>
+	<ld-cuentas-por-pagar [registryItemList]="registryItemList" [hidden]="!isSet(3)"></ld-cuentas-por-pagar>
 </section>
