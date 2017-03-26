@@ -2,6 +2,36 @@ body {
     font-size: 13px;
 }
 
+/**
+TABS
+*/
+ul.nav.nav-pills,
+ul.nav.nav-pills>li {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+ul.nav.nav-pills>li {
+    flex: 1;
+    cursor: pointer;
+    border: solid 1px gray;
+    border-bottom: none;
+    border-left: none;
+    border-radius: 20px;
+    padding-top: 10px;
+}
+
+ul.nav.nav-pills>li.selected {
+  margin-top: -5px;
+  background-color: #ededed;
+}
+
+
+/**
+MONTH
+*/
+
 .row {
     display: flex;
 }
@@ -76,3 +106,5 @@ input, button, select {
 .row.header {
     background-color: #59a4b1;
 }
+
+

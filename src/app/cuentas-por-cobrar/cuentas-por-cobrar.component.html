@@ -1,3 +1,12 @@
-<p>
-  cuentas-por-cobrar works!
-</p>
+    <div class="row header">
+      <div class="attribute">Documento</div>
+      <div class="attribute">Descripción</div>
+      <div class="attribute">Valor</div>
+      <div class="attribute">Fecha de Cobro</div>
+      <div class="attribute"></div>
+    </div>
+    <div class="row body">
+      <ld-registry-item *ngFor="let registry of registryList; let i = index; trackBy: trackByFn"
+      [index]="i+1" [registry]="registry" [format]="cxc"></ld-registry-item>
+      <div class="registry"><button (click)="newRegistry()">Nuevo</button></div>
+    </div>

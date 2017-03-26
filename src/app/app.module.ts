@@ -8,6 +8,7 @@ import { MonthComponent } from './month/month.component';
 import { RegistryItemComponent } from './month/registry-item.component';
 import { CuentasPorCobrarComponent } from './cuentas-por-cobrar/cuentas-por-cobrar.component';
 import { CuentasPorPagarComponent } from './cuentas-por-pagar/cuentas-por-pagar.component';
+import { TabsComponent } from './tabs/tabs.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { CuentasPorPagarComponent } from './cuentas-por-pagar/cuentas-por-pagar.
     MonthComponent,
     RegistryItemComponent,
     CuentasPorCobrarComponent,
-    CuentasPorPagarComponent
+    CuentasPorPagarComponent,
+    TabsComponent
   ],
   imports: [
     BrowserModule,

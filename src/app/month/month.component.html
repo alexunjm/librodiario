@@ -9,6 +9,7 @@
       <div class="attribute"></div>
     </div>
     <div class="row body">
-      <ld-registry-item *ngFor="let registry of registryList; let i = index; trackBy: trackByFn" [index]="i+1" [registry]="registry"></ld-registry-item>
+      <ld-registry-item *ngFor="let registry of registryList; let i = index; trackBy: trackByFn"
+      [index]="i+1" [registry]="registry" [format]="'month'"></ld-registry-item>
       <div class="registry"><button (click)="newRegistry()">Nuevo</button></div>
     </div>
