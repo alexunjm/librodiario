@@ -6,12 +6,16 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MonthComponent } from './month/month.component';
 import { RegistryItemComponent } from './month/registry-item.component';
+import { CuentasPorCobrarComponent } from './cuentas-por-cobrar/cuentas-por-cobrar.component';
+import { CuentasPorPagarComponent } from './cuentas-por-pagar/cuentas-por-pagar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MonthComponent,
-    RegistryItemComponent
+    RegistryItemComponent,
+    CuentasPorCobrarComponent,
+    CuentasPorPagarComponent
   ],
   imports: [
     BrowserModule,
