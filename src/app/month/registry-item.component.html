@@ -8,7 +8,7 @@
         [ngModel]="registry.date | date:'y-MM-dd'" (ngModelChange)="registry.date = getDate($event)">
       </div>
       <div class="attribute">
-        <span class="no-editable" [hidden]="editable">{{ registry.concept.name }}</span>
+        <span class="no-editable" [hidden]="editable">{{ registry.concept ? registry.concept.name : '' }}</span>
         <select [hidden]="!editable" [(ngModel)]="registry.concept">
           <option *ngFor="let concept of conceptList; let i = index; trackBy: trackByFn"
           [ngValue]="concept">{{ concept.name }}</option>
@@ -20,14 +20,14 @@
       </div>
       <div class="attribute">
         <span class="no-editable" [hidden]="editable">{{ registry.debit }}</span>
-        <input type="number" [hidden]="!editable" [(ngModel)]="registry.debit">
+        <input type="number" [hidden]="!(editable && !creditable())" [(ngModel)]="registry.debit">
       </div>
       <div class="attribute">
         <span class="no-editable" [hidden]="editable">{{ registry.credit }}</span>
-        <input type="number" [hidden]="!editable" [(ngModel)]="registry.credit">
+        <input type="number" [hidden]="!(editable && creditable())" [(ngModel)]="registry.credit">
       </div>
       <div class="attribute">
-        <span class="no-editable" [hidden]="editable">{{ registry.paymentType.name }}</span>
+        <span class="no-editable" [hidden]="editable">{{ registry.paymentType ? registry.paymentType.name : '' }}</span>
         <select [hidden]="!editable" [(ngModel)]="registry.paymentType">
           <option *ngFor="let p of paymentList; let i = index; trackBy: trackByFn"
           [ngValue]="p">{{ p.name }}</option>

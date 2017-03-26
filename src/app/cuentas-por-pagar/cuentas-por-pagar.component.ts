@@ -11,18 +11,19 @@ export class CuentasPorPagarComponent implements DoCheck {
 
   @Input() registryList: Array<Registry>;
   registryCxpList: Array<Registry>;
-  payment: PaymentType;
 
-  constructor() {
-    this.payment = Factory.getInstance().getPaymentObject('Cuentas por Pagar');
-  }
+  constructor() { }
 
   ngDoCheck() {
-    this.registryCxpList = this.registryList.filter(this.byPaymentTypeName, this);
+    this.registryCxpList = this.registryList.filter(this.byPaymentTypeCxp, this);
   }
 
-  byPaymentTypeName(registry: Registry) {
-    return registry.paymentType.name === this.payment.name;
+  byPaymentTypeCxp(registry: Registry) {
+    return registry.paymentType && registry.paymentType.cxp;
+  }
+
+  newRegistry() {
+    this.registryList.push(Factory.getInstance().getEmptyRegistryCxp());
   }
 
 }

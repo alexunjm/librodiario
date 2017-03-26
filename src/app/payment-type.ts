@@ -1,5 +1,5 @@
 export class PaymentType {
 
-  constructor(public name) {}
+  constructor(public name: string, public cxc: boolean, public cxp: boolean) {}
 
 }

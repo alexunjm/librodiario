@@ -19,8 +19,8 @@ export class RegistryItemComponent implements OnInit {
 
   constructor() {
     this.editable = false;
-    this.conceptList = Factory.getInstance().getSampleConceptList();
-    this.paymentList = Factory.getInstance().getSamplePaymentList();
+    this.conceptList = Factory.getInstance().getConceptList();
+    this.paymentList = Factory.getInstance().getPaymentTypeList();
   }
 
   ngOnInit() {
@@ -36,6 +36,11 @@ export class RegistryItemComponent implements OnInit {
 
   getDate(dateStr) {
     return Factory.getInstance().getDateFunctionsObject().getDate(dateStr);
+  }
+
+  creditable() {
+    const creditable = this.registry.concept && !this.registry.concept.credit;
+    return creditable;
   }
 
 }

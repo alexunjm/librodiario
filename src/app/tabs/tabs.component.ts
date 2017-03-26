@@ -15,8 +15,6 @@ export class TabsComponent implements OnInit {
   constructor() {
     this.month = Factory.getInstance().getDateFunctionsObject().getMonth(new Date());
     this.registryList = [];
-    this.registryList.push(Factory.getInstance().getSampleRegistry());
-    this.registryList.push(Factory.getInstance().getSampleRegistry());
   }
 
   ngOnInit() {

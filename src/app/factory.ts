@@ -7,27 +7,23 @@ export class Factory {
 
   private static _instace: Factory;
 
-  private sampleConcept: Concept;
-  private samplePayment: PaymentType;
-  private sampleConceptList: Array<Concept>;
-  private samplePaymentList: Array<PaymentType>;
+  private conceptList: Array<Concept>;
+  private paymentTypeList: Array<PaymentType>;
 
   private constructor() {
 
-    this.sampleConcept = new Concept('Ingreso');
-    this.samplePayment = new PaymentType('Banco');
-    this.sampleConceptList = [
-      this.getSampleConcept(),
-      new Concept('Egreso'),
-      new Concept('Préstamo'),
-      new Concept('Compra'),
-      new Concept('Venta')
+    this.conceptList = [
+      new Concept('Ingreso', true),
+      new Concept('Egreso', false),
+      new Concept('Préstamo', false),
+      new Concept('Compra', false),
+      new Concept('Venta', true)
     ];
-    this.samplePaymentList = [
-      this.getSamplePayment(),
-      new PaymentType('Caja'),
-      new PaymentType('Cuentas por Pagar'),
-      new PaymentType('Cuentas por Cobrar')
+    this.paymentTypeList = [
+      new PaymentType('Banco', false, false),
+      new PaymentType('Caja', false, false),
+      new PaymentType('Cuentas por Pagar', false, true),
+      new PaymentType('Cuentas por Cobrar', true, false)
     ];
   }
 
@@ -38,49 +34,38 @@ export class Factory {
     return Factory._instace;
   }
 
-  public getSampleRegistry(): Registry {
-    return new Registry(
-      new Date(),
-      this.getSampleConcept(),
-      'descripcion',
-      '',
-      '9000',
-      this.getSamplePayment()
-    );
-  }
-
   public getEmptyRegistry(): Registry {
     return new Registry(
       new Date(),
-      this.getSampleConcept(),
-      '',
-      '',
-      '',
-      this.getSamplePayment()
+      null,
+      null,
+      null,
+      null,
+      null
     );
   }
 
-  public getSampleConcept(): Concept {
-    return this.sampleConcept;
+  public getEmptyRegistryCxc(): Registry {
+    const emptyR = this.getEmptyRegistry();
+    emptyR.paymentType = new PaymentType('Cuentas por Cobrar', true, false);
+    return emptyR;
   }
 
-  public getSamplePayment(): PaymentType {
-    return this.samplePayment;
+  public getEmptyRegistryCxp(): Registry {
+    const emptyR = this.getEmptyRegistry();
+    emptyR.paymentType = new PaymentType('Cuentas por Pagar', false, true);
+    return emptyR;
   }
 
-  public getPaymentObject(name: string): PaymentType {
-    return new PaymentType(name);
+  public getConceptList(): Array<Concept> {
+    return this.conceptList;
   }
 
-  public getSampleConceptList(): Array<Concept> {
-    return this.sampleConceptList;
+  public getPaymentTypeList(): Array<PaymentType> {
+    return this.paymentTypeList;
   }
 
-  public getSamplePaymentList(): Array<PaymentType> {
-    return this.samplePaymentList;
-  }
-
-  public getDateFunctionsObject():DateFunctions {
+  public getDateFunctionsObject(): DateFunctions {
     return DateFunctions.getInstance();
   }
 }

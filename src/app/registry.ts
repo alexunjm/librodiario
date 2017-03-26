@@ -1,10 +1,14 @@
+import { Concept } from './concept';
+import { PaymentType } from './payment-type';
+
 export class Registry {
 
   public document: string;
   public chargeDate: Date;
   public paymentDate: Date;
 
-  constructor(public date, public concept, public description, public debit, public credit, public paymentType) {}
+  constructor(public date: Date, public concept: Concept, public description: string,
+    public debit: number, public credit: number, public paymentType: PaymentType) {}
 
   /*
     var sample: Registry = {
