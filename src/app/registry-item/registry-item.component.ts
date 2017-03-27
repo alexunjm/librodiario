@@ -28,9 +28,4 @@ export class RegistryItemComponent implements OnInit {
     return Factory.getInstance().getDateFunctionsObject().getDate(dateStr);
   }
 
-  creditable() {
-    const creditable = this.registryItem.registry.concept && !this.registryItem.registry.concept.credit;
-    return creditable;
-  }
-
 }

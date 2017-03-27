@@ -11,4 +11,9 @@ export class RegistryItemMonthComponent extends RegistryItemComponent {
 
   @Input() listManager: ListManager;
 
+  creditable() {
+    const concept = this.registryItem.registry.concept;
+    return concept && concept.credit;
+  }
+
 }

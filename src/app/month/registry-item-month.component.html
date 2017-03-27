@@ -20,11 +20,11 @@
       </div>
       <div class="attribute">
         <span class="no-editable" [hidden]="registryItem.editable">{{ registryItem.registry.debit }}</span>
-        <input type="number" [hidden]="!(editable && !creditable())" [(ngModel)]="registryItem.registry.debit">
+        <input type="number" [hidden]="!(registryItem.editable && !creditable())" [(ngModel)]="registryItem.registry.debit">
       </div>
       <div class="attribute">
         <span class="no-editable" [hidden]="registryItem.editable">{{ registryItem.registry.credit }}</span>
-        <input type="number" [hidden]="!(editable && creditable())" [(ngModel)]="registryItem.registry.credit">
+        <input type="number" [hidden]="!(registryItem.editable && creditable())" [(ngModel)]="registryItem.registry.credit">
       </div>
       <div class="attribute">
         <span class="no-editable" [hidden]="registryItem.editable">{{ registryItem.registry.paymentType ? registryItem.registry.paymentType.name : '' }}</span>

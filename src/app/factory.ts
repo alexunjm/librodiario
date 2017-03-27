@@ -40,7 +40,7 @@ export class Factory {
     const rItem = new RegistryItem(true);
     rItem.registry = new Registry(
       new Date(),
-      null,
+      this.conceptList[0],
       null,
       null,
       null,
@@ -51,12 +51,14 @@ export class Factory {
 
   public getEmptyRegistryItemCxc(): RegistryItem {
     const emptyRI = this.getEmptyRegistryItem();
+    emptyRI.registry.concept = this.conceptList.filter(c => c.credit)[0];
     emptyRI.registry.paymentType = this.paymentTypeList.filter(pt => pt.cxc)[0];
     return emptyRI;
   }
 
   public getEmptyRegistryItemCxp(): RegistryItem {
     const emptyRI = this.getEmptyRegistryItem();
+    emptyRI.registry.concept = this.conceptList.filter(c => !c.credit)[0];
     emptyRI.registry.paymentType = this.paymentTypeList.filter(pt => pt.cxp)[0];
     return emptyRI;
   }

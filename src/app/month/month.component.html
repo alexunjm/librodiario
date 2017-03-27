@@ -1,15 +1,19 @@
-    <div class="row header">
-      <div class="attribute">#</div>
-      <div class="attribute">Fecha</div>
-      <div class="attribute">Concepto</div>
-      <div class="attribute">Descripción</div>
-      <div class="attribute">Débito</div>
-      <div class="attribute">Crédito</div>
-      <div class="attribute">Forma de Pago</div>
-      <div class="attribute"></div>
-    </div>
-    <div class="row body">
-      <ld-registry-item-month *ngFor="let registryItem of registryItemList; let i = index; trackBy: trackByFn"
-      [index]="i+1" [registryItem]="registryItem" [listManager]="listManager"></ld-registry-item-month>
-      <div class="registry"><button (click)="newRegistryItem()">Nuevo</button></div>
-    </div>
+<div>
+  <div class="row header">
+    <div class="attribute">#</div>
+    <div class="attribute">Fecha</div>
+    <div class="attribute">Concepto</div>
+    <div class="attribute">Descripción</div>
+    <div class="attribute">Débito</div>
+    <div class="attribute">Crédito</div>
+    <div class="attribute">Forma de Pago</div>
+    <div class="attribute"></div>
+  </div>
+</div>
+<div>
+  <div class="row body">
+    <ld-registry-item-month *ngFor="let registryItem of registryItemList; let i = index; trackBy: trackByFn"
+    [index]="i+1" [registryItem]="registryItem" [listManager]="listManager"></ld-registry-item-month>
+    <div class="registry"><button (click)="newRegistryItem()">Nuevo</button></div>
+  </div>
+</div>

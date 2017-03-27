@@ -34,6 +34,8 @@ MONTH
 
 .row {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .row.body {
@@ -41,7 +43,6 @@ MONTH
 }
 
 .attribute {
-    flex-basis: 10%;
     padding: 0px 4px;
     text-align: center;
 }
@@ -50,14 +51,24 @@ MONTH
     width: 100%;
 }
 
-.attribute:nth-child(1) {
-    min-width: 50px;
-    max-width: 50px;
+.attribute:nth-child(1),
+.attribute:nth-child(8) {
+    min-width: 80px;
+    max-width: 80px;
 }
 
-.attribute:nth-child(2), .attribute:nth-child(7) {
+.attribute:nth-child(2),
+.attribute:nth-child(3),
+.attribute:nth-child(7) {
     min-width: 136px;
     max-width: 136px;
+}
+
+.attribute:nth-child(4),
+.attribute:nth-child(5),
+.attribute:nth-child(6) {
+    min-width: 150px;
+    max-width: 150px;
 }
 
 select {
