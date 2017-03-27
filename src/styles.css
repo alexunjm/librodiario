@@ -38,6 +38,11 @@ MONTH
     justify-content: center;
 }
 
+.row.registry {
+    border-bottom: solid 1px gray;
+    padding: 2px 0px 2px 0px;
+}
+
 .row.body {
     flex-direction: column;
 }
