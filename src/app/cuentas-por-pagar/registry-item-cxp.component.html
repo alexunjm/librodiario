@@ -8,8 +8,8 @@
         <input type="text" [hidden]="!registryItem.editable" [(ngModel)]="registryItem.registry.description">
       </div>
       <div class="attribute">
-        <span class="no-editable" [hidden]="registryItem.editable">{{ registryItem.registry.credit }}</span>
-        <input type="number" [hidden]="!registryItem.editable" [(ngModel)]="registryItem.registry.credit">
+        <span class="no-editable" [hidden]="registryItem.editable">{{ registryItem.registry.debit }}</span>
+        <input type="number" [hidden]="!registryItem.editable" [(ngModel)]="registryItem.registry.debit">
       </div>
       <div class="attribute">
         <span class="no-editable" [hidden]="registryItem.editable">{{ formatDate(registryItem.registry.pamentDate) }}</span>
