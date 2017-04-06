@@ -37,16 +37,14 @@ export class Factory {
   }
 
   public getEmptyRegistryItem(): RegistryItem {
-    const rItem = new RegistryItem(true);
-    rItem.registry = new Registry(
+    return this.getRegistryItem(new Registry(
       new Date(),
       this.conceptList[0],
       null,
       null,
       null,
       null
-    );
-    return rItem;
+    ));
   }
 
   public getEmptyRegistryItemCxc(): RegistryItem {
@@ -72,5 +70,21 @@ export class Factory {
 
   public getDateFunctionsObject(): DateFunctions {
     return DateFunctions.getInstance();
+  }
+
+  public getRegistryItem(registry: Registry): RegistryItem {
+    const rItem = new RegistryItem(true);
+    rItem.registry = registry;
+    return rItem;
+  }
+
+  public getRegistryItemList(registryList: Registry[]): RegistryItem[] {
+    return registryList.map(
+      obj => {
+        const rItem = new RegistryItem(true);
+        rItem.setRegistry(obj);
+        return rItem;
+      }
+    );
   }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Factory } from '../factory';
 import { RegistryItem } from '../registry-item';
 import { ListManager } from '../list-manager';
+import { HttpService } from '../http.service';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'ld-tabs',
@@ -14,13 +16,20 @@ export class TabsComponent implements OnInit {
   registryItemList: Array<RegistryItem>;
   listManager: ListManager;
 
-  constructor() {
+  constructor(private httpService: HttpService) {
     this.month = Factory.getInstance().getDateFunctionsObject().getMonth(new Date());
     this.listManager = Factory.getInstance().getListManagerObject();
+
     this.registryItemList = [];
     const empty = Factory.getInstance().getEmptyRegistryItem();
     empty.editable = false;
     this.registryItemList.push(empty);
+    this.httpService.getData().subscribe(
+      (data: Response) => {
+        console.log(data.json());
+        this.registryItemList = Factory.getInstance().getRegistryItemList(data.json());
+      }
+    );
   }
 
   ngOnInit() {

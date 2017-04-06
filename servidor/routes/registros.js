@@ -13,7 +13,7 @@ var mdb = require('../model-mongodb');
 moment.locale('es');
 
 const handler = function(req, reply) {
-	console.log("Entro");
+	console.log("Entra");
 	mdb.getRegistryList(function(err, registros) {
 		if (err) {
 			console.log(err);

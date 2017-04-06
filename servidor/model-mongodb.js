@@ -105,7 +105,36 @@ mdb.email_verify = function(id, callback) {
 	db.collection('users').updateOne({_id: new ObjectId(id)}, {$unset: {no_verificado: ''}}, callback);
 };
 
-mdb.getRegistryList = (cb) => {db.collection('registry').find().toArray(cb)}
+
+/**************************************************************************************************
+ * Lista los registros del mes
+ * @param  {Function} callback [description]
+ */
+mdb.getRegistryList = (callback) => {
+  db.collection('book').find().toArray(callback);
+};
+
+
+/**************************************************************************************************
+ * Inserta un nuevo registro en el libro diario
+ * @param  {[type]}   data     [description]
+ * @param  {Function} callback [description]
+ */
+mdb.insertRegistry = (data, callback) => {
+	db.collection('book').insertOne(data, callback);
+};
+
+
+/**************************************************************************************************
+ * Actualiza un registro en el libro diario
+ * @param  {[type]}   data     [description]
+ * @param  {Function} callback [description]
+ */
+mdb.updateRegistry = (data, callback) => {
+	const id = data.id;
+  delete data.id;
+	db.collection('book').updateOne({_id: new ObjectId(id)}, data, callback);
+};
 
 
 /**************************************************************************************************

@@ -61,7 +61,8 @@ server.app.secret = 'a+Gj=W0P0%?KAx!3';
 
 server.connection({
 	port: port,
-	address: process.env.NODE_IP || '0.0.0.0'
+	address: process.env.NODE_IP || '0.0.0.0',
+	routes: { cors: { origin: ['*'] } }
 });
 
 /*************************************************************************************************/
@@ -94,6 +95,8 @@ server.route(require('./routes/favicon'));
 server.route(require('./routes/status'));
 server.route(require('./routes/root'));
 server.route(require('./routes/registros'));
+server.route(require('./routes/nuevo_registro'));
+server.route(require('./routes/actualizar_registro'));
 
 /*************************************************************************************************/
 // Server endpoints

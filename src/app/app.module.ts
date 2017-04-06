@@ -13,6 +13,8 @@ import { RegistryItemCxcComponent } from './cuentas-por-cobrar/registry-item-cxc
 import { RegistryItemCxpComponent } from './cuentas-por-pagar/registry-item-cxp.component';
 import { RegistryItemComponent } from './registry-item/registry-item.component';
 
+import { HttpService } from './http.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,7 @@ import { RegistryItemComponent } from './registry-item/registry-item.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
