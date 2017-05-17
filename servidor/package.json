@@ -3,8 +3,10 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
+    "start": "npm run mongo:start && npm run server:devel",
     "server:start": "node server.js",
-    "server:devel": "nodemon server.js"
+    "server:devel": "nodemon server.js",
+    "mongo:start": "mongod --dbpath=data-mongo"
   },
   "private": true,
   "dependencies": {

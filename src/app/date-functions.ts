@@ -3,6 +3,13 @@ export class DateFunctions {
   private static _instace: DateFunctions;
   private month;
 
+  public static getInstance(): DateFunctions {
+    if (!DateFunctions._instace) {
+      DateFunctions._instace = new DateFunctions();
+    }
+    return DateFunctions._instace;
+  }
+
   private constructor() {
 
     this.month = new Array();
@@ -18,13 +25,6 @@ export class DateFunctions {
     this.month[9] = 'October';
     this.month[10] = 'November';
     this.month[11] = 'December';
-  }
-
-  public static getInstance(): DateFunctions {
-    if(!DateFunctions._instace) {
-      DateFunctions._instace = new DateFunctions();
-    }
-    return DateFunctions._instace;
   }
 
   defaultFormat(date: Date, separator = '/'): string {
@@ -43,7 +43,7 @@ export class DateFunctions {
 
   getDate(dateStr: string, splitter = '-'): Date {
     const e = dateStr.split(splitter);
-    const d = new Date(Date.UTC(parseInt(e[0], 10), parseInt(e[1], 10)-1, parseInt(e[2], 10)));
+    const d = new Date(Date.UTC(parseInt(e[0], 10), parseInt(e[1], 10) - 1, parseInt(e[2], 10)));
     d.setFullYear(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
     return d;
   }

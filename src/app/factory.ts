@@ -1,7 +1,7 @@
-import { Concept } from './concept';
-import { PaymentType } from './payment-type';
-import { Registry } from './registry';
-import { RegistryItem } from './registry-item';
+import { Concept } from './models/concept';
+import { PaymentType } from './models/payment-type';
+import { Registry } from './models/registry';
+import { RegistryItem } from './models/registry-item';
 import { DateFunctions } from './date-functions';
 import { ListManager } from './list-manager';
 
@@ -11,6 +11,14 @@ export class Factory {
 
   private conceptList: Array<Concept>;
   private paymentTypeList: Array<PaymentType>;
+
+
+  public static getInstance(): Factory {
+    if (!Factory._instace) {
+      Factory._instace = new Factory();
+    }
+    return Factory._instace;
+  }
 
   private constructor() {
 
@@ -27,13 +35,6 @@ export class Factory {
       new PaymentType('Cuentas por Pagar', false, true),
       new PaymentType('Cuentas por Cobrar', true, false)
     ];
-  }
-
-  public static getInstance(): Factory {
-    if(!Factory._instace) {
-      Factory._instace = new Factory();
-    }
-    return Factory._instace;
   }
 
   public getEmptyRegistryItem(): RegistryItem {

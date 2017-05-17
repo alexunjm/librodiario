@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Factory } from '../factory';
-import { RegistryItem } from '../registry-item';
+import { RegistryItem } from '../models/registry-item';
 import { ListManager } from '../list-manager';
 import { HttpService } from '../http.service';
 import { Response } from '@angular/http';

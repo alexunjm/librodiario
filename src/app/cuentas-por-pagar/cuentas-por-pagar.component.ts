@@ -1,7 +1,7 @@
 import { Component, DoCheck, Input } from '@angular/core';
 import { Factory } from '../factory';
-import { RegistryItem } from '../registry-item';
-import { PaymentType } from '../payment-type';
+import { RegistryItem } from '../models/registry-item';
+import { PaymentType } from '../models/payment-type';
 
 @Component({
   selector: 'ld-cuentas-por-pagar',

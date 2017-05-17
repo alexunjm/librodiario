@@ -11,7 +11,7 @@
         <span class="no-editable" [hidden]="registryItem.editable">{{ registryItem.registry.concept ? registryItem.registry.concept.name : '' }}</span>
         <select [hidden]="!registryItem.editable" [(ngModel)]="registryItem.registry.concept">
           <option *ngFor="let concept of listManager.conceptList; let i = index; trackBy: trackByFn"
-          [ngValue]="concept">{{ concept.name }}</option>
+          [ngValue]="registryItem.registry.concept">{{ concept.name }}</option>
         </select>
       </div>
       <div class="attribute">
@@ -30,7 +30,7 @@
         <span class="no-editable" [hidden]="registryItem.editable">{{ registryItem.registry.paymentType ? registryItem.registry.paymentType.name : '' }}</span>
         <select [hidden]="!registryItem.editable" [(ngModel)]="registryItem.registry.paymentType">
           <option *ngFor="let p of listManager.paymentTypeList; let i = index; trackBy: trackByFn"
-          [ngValue]="p">{{ p.name }}</option>
+          [ngValue]="registryItem.registry.paymentType">{{ p.name }}</option>
         </select>
       </div>
       <div class="attribute">
